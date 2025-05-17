@@ -9,6 +9,7 @@ import { Bell, MessageSquare, Phone, Calendar, ChevronRight, AlertCircle, Shield
 const Dashboard = () => {
   const [progress, setProgress] = useState(75);
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [stateincrease, setStateIncrease] = useState(0);
   
   // Mock call function
   const handleCallNow = () => {
@@ -28,6 +29,13 @@ const Dashboard = () => {
     }).format(date);
   };
 
+  const handleStateIncrease = () => {
+    setStateIncrease((prev) => prev + 1);
+  };
+  const handleStateDecrease = () => {
+    setStateIncrease((prev) => prev - 1);
+  };
+
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
@@ -42,9 +50,11 @@ const Dashboard = () => {
           <Button variant="outline" className="relative">
             <Bell className="h-5 w-5" />
             <span className="absolute -top-1 -right-1 bg-insurance-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-              3
+              {stateincrease}
             </span>
           </Button>
+          <Button variant="outline" className="relative" onClick={handleStateIncrease}>+</Button>
+          <Button variant="outline" className="relative" onClick={handleStateDecrease}>-</Button>
           <Button className="bg-insurance-primary hover:bg-insurance-primary/90">
             <MessageSquare className="h-5 w-5 mr-2" />
             New Chat
