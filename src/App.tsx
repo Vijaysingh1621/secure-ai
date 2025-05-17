@@ -53,7 +53,7 @@ const App = () => {
               </Route>
               
               {/* Catch-all Route */}
-              <Route path="*" element={<NotFound />} />
+              {/* <Route path="*" element={<NotFound />} /> */}
             </Routes>
           </BrowserRouter>
         </TooltipProvider>
